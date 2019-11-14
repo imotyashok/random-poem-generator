@@ -1,9 +1,3 @@
-NOUNS = "nouns/nouns.txt"
-VERBS = "verbs/verbs.txt"
-ADJECTIVES = "adjectives/adjectives.txt"
-ADVERBS = "adverbs/adverbs.txt"
-TEMPLATES = "templates.txt"
-
 #########################################################################
 ##                      RANDOM POEM GENERATOR                      
 ## THE IDEA 
@@ -21,76 +15,7 @@ TEMPLATES = "templates.txt"
 ## [✔] List of sentence structure templates, fill in the blank style
 ##     (I'll make the file for this myself) 
 ##########################################################################
-
-'''
-say filename is WORDS.py import class...
-from WORDS.py import Words
-
-words = Words(....)
-words.get_noun()
-
-class Words:
-    def init(n, v, a, ad, temp):
-        self.n = n 
-        self.v = v
-        self.a = a
-        self.ad = ad
-        self.temp = temp
-        
-    def get_nouns(self):
-         # Makes a list of all the nouns
-        with open(self.v , newline='') as file:
-        nouns = [line.strip() for line in file]
-
-        return nouns
-
-words = Word(file1, .... file n )
-
-noun_list = words.get_noun()
-for all_nouns in noun_list:
-    print(all_nouns)
-
-
-'''
-
-def get_nouns(NOUNS):
-    # Makes a list of all the nouns
-    with open(NOUNS, newline='') as file:
-        nouns = [line.strip() for line in file]
-
-    return nouns
-
-def get_verbs(VERBS):
-    # Makes a list of all the verbs
-    with open(VERBS, newline='') as file:
-        verbs = [line.strip() for line in file]
-
-    return verbs
-
-
-def get_adjectives(ADJECTIVES):
-    # Makes a list of all the adjectives
-
-    with open(ADJECTIVES, newline='') as file:
-        adjectives = [line.strip() for line in file]
-
-    return adjectives
-
-def get_adverbs(ADVERBS):
-    # Makes a list of all the adverbs
-    with open(ADVERBS, newline='') as file:
-        adverbs = [line.strip() for line in file]
-
-    return adverbs
-
-
-def get_templates():
-    # Puts all the template contents into a 2D array (list of lists)
-    with open(TEMPLATES, newline='') as file:
-        templates = [line.strip().split() for line in file]
-
-    print(*templates, sep ="\n")
-
+from words import Words
 
 # def poem_generator_test(lines, stanzas, content):
 #    line_count = 0
@@ -112,19 +37,26 @@ def get_templates():
 #
 #    return poem
 
-def poem_generator(lines, stanzas):
-    templates = get_templates(TEMPLATES)
-
+def poem_generator(lines, stanzas, words):
     line_count = 0
     stanza_count = 0
     poem = []
 
+    nounList = words.get_nouns()
+    verbList = words.get_verbs()
+    adjList = words.get_adjectives()
+    advList = words.get_adverbs()
+    tempList = words.get_templates()
+
+
 
 def main():
-    LINES = 3
-    STANZAS = 2
+    # Lines and stanzas are hardcoded for now for testing purposes, but
+    # will be able to be input by the user later
+    lines = 3
+    stanzas = 2
+    words = Words()
 
-    #get_templates(TEMPLATES)
-
+    poem_generator(lines, stanzas, words)
 
 main()

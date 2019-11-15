@@ -9,7 +9,7 @@
 ## [✔] Lists of verbs, nouns, adjectives, and adverbs
 ## [✔] Some type of poem structure that contains the number of lines,
 ##     number of stanzas, and contents (?) of the poem
-## [ ] Allow user to input number of lines and stanzas
+## [✔] Allow user to input number of lines and stanzas
 ## [✔] Function that generates the poem
 ## [✔] List of sentence structure templates, fill in the blank style
 ##     (I'll make the file for this myself) 
@@ -23,17 +23,21 @@ def poem_generator(lines, stanzas, words):
     stanza_count = 0
     poem = []
 
-    nounList = words.get_nouns()        # 3 ?
-    verbList = words.get_verbs()        # 4 ?
-    adjList = words.get_adjectives()    # 1 ?
-    advList = words.get_adverbs()       # 2 ?
+    # This section retrieves the words lists. The way that templates
+    # list works is that the nouns, verbs, adjectives, and adverbs stand
+    # for numbers 3, 4, 1, and 2, respectively (as shown by the label below).
+    # The function will replace the number that it encounters in the template
+    # line with a random word that corresponds to it.
+    nounList = words.get_nouns()        # 3
+    verbList = words.get_verbs()        # 4
+    adjList = words.get_adjectives()    # 1
+    advList = words.get_adverbs()       # 2
     tempList = words.get_templates()
 
     while stanza_count < stanzas:
         tempLine = random.choice(tempList)
         poemLine = []
         if stanza_count < stanzas:
-            #while tempLine:
             for word in tempLine:
                 if word == '1':
                     poemLine.append(random.choice(adjList))
@@ -57,14 +61,13 @@ def poem_generator(lines, stanzas, words):
         print(*line, sep = ' ')
 
 def main():
-    # Lines and stanzas are hardcoded for now for testing purposes, but
-    # will be able to be input by the user later
     lines = int(input("Enter the number of lines you'd like in a stanza: "))
     stanzas = int(input("Enter the number of stanzas you'd like in your poem: "))
     words = Words()
 
     print("Generating poem...\n")
     time.sleep(1)
+
     poem_generator(lines, stanzas, words)
 
 main()

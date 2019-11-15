@@ -37,5 +37,11 @@ class Words:
 
     def get_templates(self):
         with open(self.templates_f, newline='') as file:
-            templates = [line.strip() for line in file]
+            templates = [line.strip().split() for line in file]
         return templates
+# def main():
+#     word = Words()
+#     tList = word.get_templates()
+#     print(*tList,sep = '\n')
+# main()
+# main()

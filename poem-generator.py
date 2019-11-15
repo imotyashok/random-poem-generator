@@ -61,13 +61,24 @@ def poem_generator(lines, stanzas, words):
         print(*line, sep = ' ')
 
 def main():
-    lines = int(input("Enter the number of lines you'd like in a stanza: "))
-    stanzas = int(input("Enter the number of stanzas you'd like in your poem: "))
-    words = Words()
+    yes = True
+    while yes:
+        lines = int(input("Enter the number of lines you'd like in a stanza: "))
+        stanzas = int(input("Enter the number of stanzas you'd like in your poem: "))
+        words = Words()
 
-    print("Generating poem...\n")
-    time.sleep(1)
+        print("Generating poem...\n")
+        time.sleep(1)
 
-    poem_generator(lines, stanzas, words)
+        poem_generator(lines, stanzas, words)
+
+        repeat = input("\nWould you like another poem? (yes/no) ").lower()
+        if repeat == "y" or repeat == "yes":
+            continue
+        elif repeat == "n" or repeat == "no":
+            yes = False
+        else:
+            print("Sorry, '%s' is not recognized. \n"%(repeat))
+            yes = False
 
 main()

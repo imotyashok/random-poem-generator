@@ -21,6 +21,32 @@ As of November 16, 2019, the program accepts user input for the number of lines 
 
 As expected, the generated poem makes very little sense semantically, has no punctuation, and has many grammar issues regarding tenses and possessives. I'm sure that there's also a more efficient way to get the poem to generate, since currently it utilizes what is essentially a 2D array (the generator iterates through a list of lines, and each line contains a list of words). However, it is still pretty interesting to see the unique ways in which the generator combines words and lines, even if semantically it might have no discernible meaning. 
 
+Here is a sample run of the program:
+```
+>>> Enter the number of lines you'd like in a stanza: 4
+>>> Enter the number of stanzas you'd like in your poem: 3
+Generating poem...
+
+Oh how bathyal and amphibious it sympathising
+The treed green emboldens through its disembarkations
+Then no sculptresses could ever raiment
+When the transection frustrating sanely to the cosmogonist
+ 
+Only to reorganize upon a nethermost Parnell original
+How could a covellite be so nonplused and ruly
+Despite the ordinations and filmography and thearchies
+Oh! But how can a parthenocarpic acceptations be so unconfining
+ 
+animalising expeditiously through the unleavened raggedness
+Until the worked rabblements dialogize
+Oh! But how can a mardy cyclograph be so telegenic
+Through the pedal sauces and the loathsome roarers
+ 
+
+>>> Would you like another poem? (yes/no) no
+
+```
+
 ## Ideas for Future Additions and Improvements 
 
 As it stands, the project and program itself is very simple. However, there are many ways in which the project can be developed further and made more interesting and complex. Here are some of my ideas:
